@@ -1,7 +1,13 @@
 <h2>商品の出品</h2>
 <%= form_for @vegetable do |f| %>
-  <label>商品名</label>
+  <label>野菜名</label>
   <%= f.text_field :title %>
+
+  <label>商品のタイトル</label>
+  <%= f.text_field :content %>
+
+  <label>商品の値段</label>
+  <%= f.number_field :price %>
 
   <label>商品の画像</label>
   <%= f.file_field :image %>
@@ -12,9 +18,7 @@
    <label>商品の生産県</label>
   <%= f.text_field :prefecture %>
 
-  <p>商品の内容 content追加</p>
-  <p>商品の値段 price追加</p>
-
+  
     <%= f.submit %>
 
 
