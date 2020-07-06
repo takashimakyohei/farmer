@@ -1,2 +1,10 @@
-<h1>Vegetables#index</h1>
-<p>Find me in app/views/vegetables/index.html.erb</p>
+<h2>商品一覧</h2>
+
+<% @vegetables.each do |vegetable| %>
+   <p>野菜写真が入ります</p>
+   <p>生産者：<%= vegetable.shop.name %></p>
+   <p>タイトル：<%= vegetable.title %></p>
+   <p>生産者の画像が入ります</p>
+   <p>商品の生産者の住所が入ります(vegetable.shop.address)</p>
+   <p>説明：<%= vegetable.description %></p>
+<% end %>
