@@ -1,4 +1,8 @@
 class HomesController < ApplicationController
-  def index
+  def index　
+  end
+
+  def login #トップページのログイン画面
+
   end
 end
