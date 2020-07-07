@@ -1,0 +1,31 @@
+<!-- 部分テンプレート化予定-->
+<% if user_signed_in? %>
+  ~<%= current_user.name %>がログインしてます~
+  <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
+
+<% elsif shop_signed_in? %>
+  ~<%= current_shop.name %>がログインしてます~
+  <%= link_to "ログアウト", destroy_shop_session_path ,:method => :delete %>
+
+<% else %>
+  <h3>ユーザー</h3>
+  <%= link_to "ログイン", new_user_session_path %>
+  <%= link_to "新規登録", new_user_registration_path %>
+  <h3>ショップ</h3>
+  <%= link_to "ログイン", new_shop_session_path %>
+  <%= link_to "新規登録", new_shop_registration_path %>
+<% end %>
+<!--ここまで部分テンプレート化予定-->
+
+<h2>生産者</h2>
+<hr>
+<p>生産県:<%= @shop.prefecture %></p>
+<p>生産者：<%=@shop.name  %></p>
+<p>プロフィール:<%= @shop.profile %></p>
+<p>生産者画像：<%= image_tag @shop.image.to_s %></p>
+
+<h2>販売中の作物</h2>
+<hr>
+<% @vegetables.each do |v| %>
+<%= image_tag v.image.to_s %>
+<% end %>

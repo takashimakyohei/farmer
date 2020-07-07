@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'shops/index'
+  get "shops/index"
   root to: "homes#index"
   get "homes/login"
+  get "shops/:id", to: "shops#show", as: "shop"
   devise_for :shops
   devise_for :users
   resources :vegetables
