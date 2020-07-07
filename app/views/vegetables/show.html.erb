@@ -23,8 +23,9 @@
 <p>内容：<%= @vegetable.content %></p>
 <p>値段：<%= @vegetable.price %></p>
 <p>内容：<%= @vegetable.description %></p>
-<p>{{野菜の写真が入ります}}</p>
+<p><%= image_tag @vegetable.image.to_s %></p>
 <p>生産者：<%=@vegetable.shop.name  %></p>
+<p>生産者の画像 <%= image_tag @vegetable.shop.image.to_s %></p>
 
 <a href="#">生産者にDMする</a>
 <% if @vegetable.shop == current_shop %>
