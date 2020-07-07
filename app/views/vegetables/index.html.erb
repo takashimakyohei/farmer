@@ -28,5 +28,13 @@
    <p>生産者の画像 <%= image_tag vegetable.shop.image.to_s %></p>
    <p>生産者の住所：<%= vegetable.shop.address %></p>
    <p>説明：<%= vegetable.description %></p>
+
+    <% if Favorite.find_by(user_id: current_user.id, vegetable_id: vegetable.id) %>
+      <%= link_to "いいねを外す", vegetable_favorites_path(vegetable), method: :delete %>
+    <% else %>
+      <%= link_to "いいね", vegetable_favorites_path(vegetable), method: :post %>
+    <% end %>
+  <%= vegetable.favorites.count %>
+
 </div>
 <% end %>
