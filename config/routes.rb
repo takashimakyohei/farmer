@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get "shops/index"
   root to: "homes#index"
   get "homes/login"
-  get "shops/:id", to: "shops#show", as: "shop"
   devise_for :shops
   devise_for :users
   resources :vegetables
+  resources :shops, only: [:index, :show, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

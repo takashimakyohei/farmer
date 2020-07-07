@@ -24,6 +24,10 @@
 <p>プロフィール:<%= @shop.profile %></p>
 <p>生産者画像：<%= image_tag @shop.image.to_s %></p>
 
+<% if current_shop == @shop %>
+  <%= link_to "編集", edit_shop_path  %>
+<% end %>
+
 <h2>販売中の作物</h2>
 <hr>
 <% @vegetables.each do |v| %>
