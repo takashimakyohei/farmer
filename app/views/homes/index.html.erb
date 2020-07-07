@@ -1,8 +1,11 @@
+<!-- 部分テンプレート化予定-->
 <% if user_signed_in? %>
   ~<%= current_user.name %>がログインしてます~
+  <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
 
 <% elsif shop_signed_in? %>
   ~<%= current_shop.name %>がログインしてます~
+  <%= link_to "ログアウト", destroy_shop_session_path ,:method => :delete %>
 
 <% else %>
   <h3>ユーザー</h3>
@@ -12,5 +15,8 @@
   <%= link_to "ログイン", new_shop_session_path %>
   <%= link_to "新規登録", new_shop_registration_path %>
 <% end %>
+<!--ここまで部分テンプレート化予定-->
 
 
+<h1>About</h1>
+コンセプトなどを表示

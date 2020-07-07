@@ -9,29 +9,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
- <body>
-  <% if shop_signed_in? %>
-  <nav>
-  <%= link_to "ログアウト", destroy_shop_session_path, method: :delete %>
-  <%= link_to "新規投稿", new_vegetable_path %>
-  <%= link_to "投稿一覧", vegetables_path %>
+  <body>
+    <p><%= link_to "Top", root_path %></p>
+    <p><%= link_to "野菜", vegetables_path %></p>
+    <p><%= link_to "生産者", "#" %></p>
+    <p><%= link_to "Contact", "#" %></p>
 
-  <% else %>
-  <%= link_to "ログイン", homes_login_path %>
-  <%= link_to "サインアップ", new_shop_registration_path %>
-  </nav>
-   <% end %>
-
-     <% if user_signed_in? %>
-  <nav>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "投稿一覧", vegetables_path %>
-
-  <% else %>
-  <%= link_to "ログイン", homes_login_path %>
-  <%= link_to "サインアップ", new_user_registration_path %>
-  </nav>
-   <% end %>
 
 
     <%= yield %>

@@ -1,10 +1,32 @@
+<!-- 部分テンプレート化予定-->
+<% if user_signed_in? %>
+  ~<%= current_user.name %>がログインしてます~
+  <%= link_to "ログアウト", destroy_user_session_path ,:method => :delete %>
+
+<% elsif shop_signed_in? %>
+  ~<%= current_shop.name %>がログインしてます~
+  <%= link_to "ログアウト", destroy_shop_session_path ,:method => :delete %>
+
+<% else %>
+  <h3>ユーザー</h3>
+  <%= link_to "ログイン", new_user_session_path %>
+  <%= link_to "新規登録", new_user_registration_path %>
+  <h3>ショップ</h3>
+  <%= link_to "ログイン", new_shop_session_path %>
+  <%= link_to "新規登録", new_shop_registration_path %>
+<% end %>
+<!--ここまで部分テンプレート化予定-->
+
 <h2>商品一覧</h2>
 
 <% @vegetables.each do |vegetable| %>
+<div class="content">
+    <%= link_to "詳細", vegetable_path(vegetable) %>
    <p>野菜写真が入ります</p>
    <p>生産者：<%= vegetable.shop.name %></p>
    <p>タイトル：<%= vegetable.title %></p>
    <p>生産者の画像が入ります</p>
-   <p>商品の生産者の住所が入ります(vegetable.shop.address)</p>
+   <p>生産者の住所：<%= vegetable.shop.address %></p>
    <p>説明：<%= vegetable.description %></p>
+</div>
 <% end %>
