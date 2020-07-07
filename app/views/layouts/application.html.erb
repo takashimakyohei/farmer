@@ -14,7 +14,9 @@
     <p><%= link_to "野菜", vegetables_path %></p>
     <p><%= link_to "生産者", "#" %></p>
     <p><%= link_to "Contact", "#" %></p>
-
+  <% if shop_signed_in? %>
+    <p><%= link_to "作物を出費する", new_vegetable_path %></p>
+  <% end %>
 
 
     <%= yield %>
