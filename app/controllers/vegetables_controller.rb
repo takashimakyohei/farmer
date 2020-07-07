@@ -5,6 +5,8 @@ class VegetablesController < ApplicationController
 
   def show
     @vegetable = Vegetable.find(params[:id])
+    @comments = @vegetable.comments
+    @comment = Comment.new
   end
 
   def new

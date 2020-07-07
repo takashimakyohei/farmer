@@ -29,12 +29,22 @@
 
 <a href="#">生産者にDMする</a>
 <% if @vegetable.shop == current_shop %>
-
   <%= link_to "編集", edit_vegetable_path(@vegetable) %>
   <%= link_to "削除", vegetable_path(@vegetable), method: :delete %>
-
 <% end %>
 
-コメント
+  <%= form_for [@vegetable, @comment] do |f| %>
+  <%= f.text_field :content %>
+   <%= f.hidden_field :vegetable_id, value: @vegetable.id %>
+  <br>
+  <%= f.submit "コメントする" %>
+  <% end %>
+
 <hr>
-<p>野菜に対してコメントしたユーザー画像と、コメント内容が表示されます</p>
+
+<% @comments.each do |comment| %>
+  <p><%= comment.content %></p>
+  <% if comment.user_id == current_user.id %>
+   <%= link_to "削除", comment_path(comment.id), method: :delete %>
+  <% end %>
+<% end %>
